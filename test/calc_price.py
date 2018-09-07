@@ -26,7 +26,6 @@ class TestCalculatePrice(unittest.TestCase):
         input = io.StringIO('1,25,3\n40,16\n\n100,45\n')
         calc_price.input_to_data(input)
 
-
-
-
-
+    def test_calculater(self):
+        calc_price = Calc_price()
+        self.assertEqual(calc_price.calculater(io.StringIO('1,25,3\n40,16\n\n100,45\n')),[32,62,0,160])
