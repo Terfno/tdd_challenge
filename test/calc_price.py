@@ -17,23 +17,15 @@ class TestCalculatePrice(unittest.TestCase):
         assert 198 == calc_price.calculater_price([30,60,90])
         assert 40 == calc_price.calculater_price([11,12,13])
 
-    # def test_execute(self):
-    #     input = io.StringIO('10, 10')
-    #     output = io.StringIO()
-    #     calc_price = Calc_price(input, output)
-    #     calc_price.execute()
-    #     assert output.getvalue() == '22'
-
     def test_input_to_data(self):
         calc_price = Calc_price()
+        
+        input = io.StringIO('10,12,3\n40,16\n100,45\n')
+        calc_price.input_to_data(input)
 
-        input = '10,12,3\n40,16\n100,45\n'
-        assert [[10,12,3],[40,16],[100,45]] == calc_price.input_to_data(input)
+        input = io.StringIO('1,25,3\n40,16\n\n100,45\n')
+        calc_price.input_to_data(input)
 
-        input = '1,25,3\n40,16\n\n100,45\n'
-        assert [[1,25,3],[40,16],[],[100,45]] == calc_price.input_to_data(input)
-
-
-
-
-
+    def test_calculater(self):
+        calc_price = Calc_price()
+        self.assertEqual(calc_price.calculater(io.StringIO('1,25,3\n40,16\n\n100,45\n')),[32,62,0,160])
