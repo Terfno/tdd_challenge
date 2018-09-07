@@ -16,24 +16,24 @@ class Calc_price():
         return ans
 
     def input_to_data(self, input):
-        return [[10,12,3],[40,16],[100,45]]
-        # lines = input.split('\n')
-        # for line in lines:
-        #     value_list = line.split(',')
+        result = []
+        lines = []
+        input = input.read()
+        input = input.split('\n')
 
-#    def execute(self):
+        for i in input:
+            i = i.split(',')
+            lines.append(i)
 
+        lines.pop(-1)
 
-# def some_method():
-#     calc_price = Calc_price()
-#     test_file = open('input.txt')
-#     lines = test_file.readlines()  # 1行毎にファイル終端まで全て読む(改行文字も含まれる)
-#     test_file.close()
-#     for line in lines:
-#         values = line.split(',')
-#         ans = calc_price.calculater_price(values)
+        for i in lines:
+            if i == [''] :
+                result.append([])
+                continue
+            result.append(list(map(lambda x: int(x), i)))
 
-
+        return result
 
 if __name__ == '__main__':
     # シェル等から実行されたときに実行される内容
@@ -43,7 +43,6 @@ if __name__ == '__main__':
             line = input()
         except EOFError:
             break
-        values = line.split(',')
         calc_price = Calc_price()
         ans = calc_price.calculater_price(values)
         print(ans)
