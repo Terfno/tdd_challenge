@@ -1,5 +1,5 @@
 # TDD Challenge 2018!
-Let's TDD!!!
+Let's TDD!!頑張ります！
 
 # 動作環境について
 Python3 での動作を想定しています。
