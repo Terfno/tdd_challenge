@@ -7,5 +7,6 @@ class Calc_price():
             sum += value
 
         ans = sum * 1.1
-        ans = round(ans)
+        ans = int(round(ans))
+        print(ans)
         return ans
