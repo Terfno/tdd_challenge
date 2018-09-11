@@ -34,7 +34,6 @@ class Calc_price():
     
         return result
 
-
 if __name__ == '__main__':
     calc_price = Calc_price()
     print(calc_price.calculater(sys.stdin))
